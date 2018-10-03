@@ -9,7 +9,7 @@ import fixture.Fixture;
 import model.tarea.NotaNumerica;
 
 public class TestAsignacionTarea extends Fixture {
-	@Test
+	/*@Test
 	public void pruebaDeInglesEstaAprobada() {
 		assertTrue(pruebaDeIngles.getAprobo());
 	}
@@ -27,6 +27,6 @@ public class TestAsignacionTarea extends Fixture {
 	public void tpArenaEstaAprobadaDespuesDeCalificarBien() {
 		tpArena.calificar(bien);
 		assertTrue(tpArena.getAprobo());
-	}
+	}*/
 	
 }

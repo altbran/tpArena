@@ -1,5 +1,7 @@
 package fixture;
 
+import login.Login;
+import model.estudiante.ClienteHTTP;
 import model.estudiante.Estudiante;
 import model.repositorios.RepoEstudiantes;
 import model.tarea.AsignacionTarea;
@@ -11,13 +13,9 @@ import model.tarea.Tarea;
 public class Fixture {
 	
 	static Fixture instancia = null;
-	protected RepoEstudiantes repo;
-	protected Estudiante estudiante;
-	protected AsignacionTarea pruebaDeIngles;
-	protected AsignacionTarea tpOperativos;
-	protected AsignacionTarea tpArena;
-	protected NotaConceptual mal;
-	protected NotaConceptual bien;
+	
+	public int legajoPrueba = 111111;
+	String tokenPrueba = "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiIxMTEyMjIzMzMiLCJybmQiOiJ5SXNmZFIwN2lIR3BRRmVjYU9KT2VRPT0ifQ.9pVJGUXhrJPQ-TptNCt971l0h_1dWqWgMrHAWXJchho";
 	
 	public static Fixture getInstance() {
 		if(instancia==null)
@@ -30,29 +28,8 @@ public class Fixture {
 	}
 	
 	public void fixture() {
-		repo = RepoEstudiantes.getInstance();
+		Login.getInstance().registrarToken(legajoPrueba, tokenPrueba);
 		
-		estudiante = new Estudiante("Pepe", "Sanchez", "pepeCapo123", 111111);
-		pruebaDeIngles = new AsignacionTarea(new Tarea("Prueba de ingles"));
-		pruebaDeIngles.calificar(new NotaNumerica(8));
-		bien = new NotaConceptual();
-		bien.setNota(EnumNotaConceptual.BIEN);
-	    tpOperativos = new AsignacionTarea(new Tarea("TP Operativos"));
-		tpOperativos.calificar(bien);
-		
-		AsignacionTarea pruebaDeLegislacion = new AsignacionTarea(new Tarea("Legislacion"));
-		pruebaDeLegislacion.calificar(new NotaNumerica(3));
-	    mal = new NotaConceptual();
-		mal.setNota(EnumNotaConceptual.MAL);
-	    tpArena = new AsignacionTarea(new Tarea("TP Arena"));
-		tpArena.calificar(mal);
-		
-		estudiante.asignarTarea(pruebaDeLegislacion);
-		estudiante.asignarTarea(tpOperativos);
-		estudiante.asignarTarea(pruebaDeIngles);
-		estudiante.asignarTarea(tpArena);		
-		
-		repo.agregarEstudiante(estudiante);
 	}
 	
 }

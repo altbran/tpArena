@@ -8,7 +8,7 @@ import fixture.Fixture;
 
 public class TestHomeViewModel extends Fixture {	
 	
-	@Test
+	/*@Test
 	public void ElLegajo111111TraeAlEstudianteConNombrePrueba() {
 		assertEquals("Pepe", repo.obtenerEstudiantePorLegajo(111111).getNombre());
 	}
@@ -16,6 +16,6 @@ public class TestHomeViewModel extends Fixture {
 	@Test (expected = model.repositorios.LegajoInexistenteException.class)
 	public void ElLegajo2345TiraErrorSiIntentoTraerEstudiante() {
 		repo.obtenerEstudiantePorLegajo(2345);
-	}
+	}*/
 			
 }
