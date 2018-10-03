@@ -2,6 +2,7 @@ package ui.viewmodel;
 
 import org.uqbar.commons.model.annotations.Observable;
 
+import login.Login;
 import model.estudiante.Estudiante;
 import model.repositorios.RepoEstudiantes;
 
@@ -18,7 +19,7 @@ public class HomeViewModel {
 	}
 	
 	public Estudiante obtenerEstudiante() {
-		RepoEstudiantes repo = RepoEstudiantes.getInstance();
-		return repo.obtenerEstudiantePorLegajo(legajo);
+		return Login.getInstance().intentarLogearEstudiantePorLegajo(legajo);
+		
 	}
 }
