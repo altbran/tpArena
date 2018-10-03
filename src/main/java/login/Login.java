@@ -24,10 +24,13 @@ public class Login {
 	
 	public Estudiante intentarLogearEstudiantePorLegajo(int legajo) {
 		String token = obtenerToken(legajo);
-		System.out.print(token);
-		String jsonResponse = ClienteHTTP.getInstance().traerEstudiantePorToken(token);
-		System.out.print(jsonResponse);
-		return json.JsonParser.deserializarEstudiante(jsonResponse);
+		
+		String jsonResponseEstudiante = ClienteHTTP.getInstance().traerEstudiantePorToken(token);
+		Estudiante estudiante = json.JsonParser.deserializarEstudiante(jsonResponseEstudiante);
+		String jsonResponseAsignaciones = ClienteHTTP.getInstance().traerAsignacionesPorToken(token);
+		Estudiante estudianteConAsignaciones = json.JsonParser.deserializarAsignaciones(jsonResponseAsignaciones);
+		estudiante.setAsignaciones(estudianteConAsignaciones.getAsignaciones());
+		return estudiante;
 				
 	}
 	

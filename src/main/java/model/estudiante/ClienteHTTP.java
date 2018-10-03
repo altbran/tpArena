@@ -24,16 +24,25 @@ public class ClienteHTTP {
 		}
 		return instancia;
 	}
+	
+	  public ClienteHTTP() {
+	        this.client = Client.create();        
+	      
+	    }
     
 	public String traerEstudiantePorToken(String token) {
 		  ClientResponse response = this.client.resource(API_NOTAS).path(RECURSO_ESTUDIANTE)
 				  .accept(MediaType.APPLICATION_JSON)
 	                 .header("Authorization", PRE_TOKEN + " " + token)
 	                 .get(ClientResponse.class);
-	         return response.getEntity(String.class);
-	        
-	    
-	        
+	         return response.getEntity(String.class);       
+	}
+	public String traerAsignacionesPorToken(String token) {
+		  ClientResponse response = this.client.resource(API_NOTAS).path(RECURSO_ESTUDIANTE+'/'+RECURSO_TAREAS)
+				  .accept(MediaType.APPLICATION_JSON)
+	                 .header("Authorization", PRE_TOKEN + " " + token)
+	                 .get(ClientResponse.class);
+	         return response.getEntity(String.class);       
 	}
 	
 }
