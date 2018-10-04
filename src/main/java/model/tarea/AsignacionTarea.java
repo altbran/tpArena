@@ -5,10 +5,31 @@ import java.util.List;
 
 import org.uqbar.commons.model.annotations.Observable;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+import com.fasterxml.jackson.annotation.JsonProperty;
+
+@JsonIgnoreProperties(ignoreUnknown = true)
 @Observable
 public class AsignacionTarea {
+	@JsonIgnore
 	private Tarea tarea;
+	@JsonProperty("grades")
 	private List<Nota> notas = new ArrayList<>();
+	
+	@JsonProperty("title")
+	public void setTituloTarea(String nombre) {
+		tarea.setNombre(nombre);
+	}
+	
+	@JsonProperty("description")
+	public void setTituloDescripcion(String descripcion) {
+		tarea.setDescripcion(descripcion);
+	}
+	
+	public AsignacionTarea() {
+		
+	}
 	
 	public AsignacionTarea(Tarea tarea) {
 		this.tarea = tarea;

@@ -25,10 +25,10 @@ public class JsonParser {
 		return estudiante;
 	}
 	
-	public static List<Tarea> deserializarAsignaciones(String responseJson) {
+	public static Estudiante deserializarAsignaciones(String responseJson) {
 		ObjectMapper objectMapper = new ObjectMapper();
 		//List<Car> listCar = objectMapper.readValue(jsonCarArray, new TypeReference<List<Car>>(){});
-		List<Tarea> estudiante = null;
+		Estudiante estudiante = null;
 		try {
 			estudiante = objectMapper.readValue(responseJson,Estudiante.class);
 		} catch (IOException e) {

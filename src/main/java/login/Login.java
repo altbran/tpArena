@@ -23,6 +23,8 @@ public class Login {
 	}
 	
 	public Estudiante intentarLogearEstudiantePorLegajo(int legajo) {
+		//Codigo para probar visualmente 
+		registrarToken(111111, "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiIxMTEyMjIzMzMiLCJybmQiOiJ5SXNmZFIwN2lIR3BRRmVjYU9KT2VRPT0ifQ.9pVJGUXhrJPQ-TptNCt971l0h_1dWqWgMrHAWXJchho");
 		String token = obtenerToken(legajo);
 		
 		String jsonResponseEstudiante = ClienteHTTP.getInstance().traerEstudiantePorToken(token);
